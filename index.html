@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Công Cụ Tạo Mô Tả Sản Phẩm E-commerce</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="homepage">
+        <header>
+            <h1>CÔNG CỤ TẠO MÔ TẢ SẢN PHẨM E-COMMERCE</h1>
+            <nav>
+                <a href="#about">Về chúng tôi</a> | <a href="#products">Sản Phẩm</a> | <a href="#contact">Liên Hệ</a> | <button onclick="showLoginFromHome()" style="background: none; border: none; color: #007bff; cursor: pointer; text-decoration: underline;">Đăng Nhập</button>
+            </nav>
+        </header>
+        <section id="hero">
+            <h2>Chào mừng đến với Công Cụ Tạo Mô Tả Sản Phẩm AI</h2>
+            <p>Chúng tôi giúp bạn tạo ra các mô tả sản phẩm hấp dẫn, tối ưu SEO cho cửa hàng E-commerce của bạn chỉ trong vài giây.</p>
+            <button onclick="showLoginFromHome()">Bắt Đầu Sử Dụng</button>
+        </section>
+        <section id="about">
+            <h2>Về Chúng Tôi</h2>
+            <p>Chúng tôi là đội ngũ chuyên gia trong lĩnh vực marketing kỹ thuật số và công nghệ AI, cam kết cung cấp các công cụ và giải pháp sáng tạo để giúp doanh nghiệp tạo nội dung chất lượng cao, tối ưu hóa SEO, và thúc đẩy bán hàng trực tuyến.</p>
+        </section>
+        <section id="products">
+            <h2>Sản Phẩm Nổi Bật</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <h3>Công Cụ Tạo Mô Tả Sản Phẩm</h3>
+                    <p>Tạo mô tả sản phẩm hấp dẫn với AI, hỗ trợ SEO và tối ưu bán hàng.</p>
+                </div>
+                <div class="product-card">
+                    <h3>Công Cụ Tạo Tên Thương Hiệu</h3>
+                    <p>Ý tưởng tên thương hiệu sáng tạo và độc đáo.</p>
+                </div>
+                <div class="product-card">
+                    <h3>Tạo Nội Dung Quảng Cáo</h3>
+                    <p>Nội dung quảng cáo hiệu quả cho Google và Facebook.</p>
+                </div>
+            </div>
+        </section>
+        <footer id="contact">
+            <p>Liên Hệ: info@vecommerce.com | © 2026 V-Ecommerce</p>
+        </footer>
+    </div>
+    <div id="loginSection" class="login-container" style="display: none;">
+        <div class="login-form">
+            <h2>Đăng Nhập</h2>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Mật khẩu" required>
+                <button type="submit">Đăng Nhập</button>
+            </form>
+            <p>Chưa có tài khoản? <a href="#" onclick="showSignup()">Đăng Ký</a></p>
+            <p><a href="#" onclick="backToHome()">Quay Lại Trang Chủ</a></p>
+        </div>
+        <div class="signup-form" style="display: none;">
+            <h2>Đăng Ký</h2>
+            <form id="signupForm">
+                <input type="text" id="signupName" placeholder="Tên" required>
+                <input type="email" id="signupEmail" placeholder="Email" required>
+                <input type="password" id="signupPassword" placeholder="Mật khẩu" required>
+                <button type="submit">Đăng Ký</button>
+            </form>
+            <p>Đã có tài khoản? <a href="#" onclick="showLogin()">Đăng Nhập</a></p>
+            <p><a href="#" onclick="backToHome()">Quay Lại Trang Chủ</a></p>
+        </div>
+    </div>
+    <div id="mainContent">
+    <header>
+        <h1>CÔNG CỤ TẠO MÔ TẢ SẢN PHẨM E-COMMERCE</h1>
+        <nav>
+            <a href="#productForm">Tạo mô tả</a> | <a href="#freeTools">Về chúng tôi</a> | <a href="#products">Sản Phẩm</a> | <a href="#tips">Lời Khuyên</a> | <a href="#contact">Liên Hệ</a> | <button onclick="logout()" style="background: none; border: none; color: #007bff; cursor: pointer; text-decoration: underline;">Đăng Xuất</button>
+        </nav>
+    </header>
+    <form id="productForm">
+        <label for="productName">Tên sản phẩm:</label>
+        <input type="text" id="productName" placeholder="Ví dụ: Áo thun nam" required oninput="checkFormCompletion()">
+
+        <label for="features">Các tính năng chính (liệt kê, mỗi dòng một):</label>
+        <textarea id="features" rows="5" placeholder="Ví dụ:
+Chất liệu cotton thoáng mát
+Thiết kế đơn giản
+Màu sắc đa dạng" required oninput="checkFormCompletion()"></textarea>
+
+        <label for="benefits">Lợi ích chính dành cho khách hàng:</label>
+        <textarea id="benefits" rows="3" placeholder="Ví dụ: Phù hợp cho mọi hoạt động hàng ngày, dễ chịu khi mặc." required oninput="checkFormCompletion()"></textarea>
+
+        <label for="seoKeywords">Từ khóa SEO mục tiêu:</label>
+        <input type="text" id="seoKeywords" placeholder="Ví dụ: áo thun nam, áo thun cotton, áo thun đẹp" required oninput="checkFormCompletion()">
+
+        <label for="style">Phong cách bài viết:</label>
+        <select id="style" required oninput="checkFormCompletion()">
+            <option value="">Chọn phong cách</option>
+            <option value="Gần gũi">Gần gũi</option>
+            <option value="Chuyên nghiệp">Chuyên nghiệp</option>
+            <option value="Trẻ trung">Trẻ trung</option>
+        </select>
+
+        <label for="apiKey">API Key (Hỗ trợ cả Google AI Studio / Gemini hoặc OpenAI - để trống nếu không có):</label>
+        <input type="password" id="apiKey" placeholder="sk-... hoặc key Gemini">
+
+        <div id="buttonContainer">
+            <button type="button" id="generateBtn" disabled>Tạo Mô Tả</button>
+
+        <div id="buttonContainer">
+            <button type="button" id="generateBtn" disabled>Tạo Mô Tả</button>
+            <div id="output" style="display: none; margin-top: 30px; padding: 25px; border: none; background: #ffffff; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); border-left: 6px solid #007bff; transition: all 0.3s ease;">
+                <h3 style="margin-top: 0; color: #333; font-size: 1.4em; border-bottom: 2px solid #f0f0f0; padding-bottom: 15px;">✨ Kết Quả Mô Tả Sản Phẩm</h3>
+                <div id="descriptionText" style="white-space: pre-wrap; line-height: 1.6; color: #444; font-size: 16px; margin: 20px 0; background: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #e9ecef; max-height: 400px; overflow-y: auto;"></div>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <button type="button" id="copyBtn" onclick="copyDescription()" style="display: flex; align-items: center; gap: 8px; background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; transition: 0.2s;">📋 Sao Chép Nhanh</button>
+                    <button type="button" onclick="formatToHTML()" style="padding: 10px 20px; border: 1px solid #007bff; background: transparent; color: #007bff; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; transition: 0.2s;">🌐 Định Dạng Sang HTML</button>
+                    <button type="button" onclick="evaluatePotential()" style="padding: 10px 20px; border: 1px solid #ffc107; background: transparent; color: #d39e00; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; transition: 0.2s;">⭐ Đánh Giá Tiềm Năng</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div id="freeTools">
+        <h2>Về chúng tôi</h2>
+        <p>Chúng tôi là đội ngũ chuyên gia trong lĩnh vực marketing kỹ thuật số và công nghệ AI, cam kết cung cấp các công cụ và giải pháp sáng tạo để giúp doanh nghiệp tạo nội dung chất lượng cao, tối ưu hóa SEO, và thúc đẩy bán hàng trực tuyến. Với kinh nghiệm dày dặn, chúng tôi hỗ trợ hàng nghìn khách hàng đạt được mục tiêu kinh doanh.</p>
+        <p><strong>Lĩnh vực hoạt động:</strong> Sales, CRM, Phân tích kinh doanh, Quản lý rủi ro.</p>
+    </div>
+
+    <div id="counters">
+        <h2>Thành tựu của chúng tôi</h2>
+        <div class="counter-grid">
+            <div class="counter-item">
+                <div class="counter-number" data-target="32000">0</div>
+                <p>Số lượt mô tả</p>
+            </div>
+            <div class="counter-item">
+                <div class="counter-number" data-target="9800">0</div>
+                <p>Số từ tiết kiệm</p>
+            </div>
+            <div class="counter-item">
+                <div class="counter-number" data-target="90">0</div>
+                <p>Tiềm năng (%)</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="products">
+        <h2>Sản phẩm của chúng tôi</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <h3>Công cụ tạo tên thương hiệu</h3>
+                <p>Tạo ra các ý tưởng tên thương hiệu sáng tạo và độc đáo cho doanh nghiệp của bạn. Dễ dàng sử dụng và tùy chỉnh theo nhu cầu.</p>
+                <button onclick="openProductModal('Công cụ tạo tên thương hiệu', 'Công cụ này sử dụng trí tuệ nhân tạo để tạo ra các ý tưởng tên thương hiệu sáng tạo và độc đáo. Bạn có thể nhập từ khóa liên quan đến ngành nghề, giá trị cốt lõi, và nhận được danh sách đề xuất tên phù hợp. Tính năng chính: Tạo tên dựa trên AI, kiểm tra tính khả dụng trên mạng, gợi ý biến thể và logo cơ bản. Phù hợp cho startup và doanh nghiệp muốn xây dựng thương hiệu mạnh mẽ.')">Truy Cập</button>
+            </div>
+            <div class="product-card">
+                <h3>Công cụ tạo tên doanh nghiệp</h3>
+                <p>Giúp bạn brainstorm và tạo tên doanh nghiệp phù hợp, chuyên nghiệp và dễ nhớ.</p>
+                <button onclick="openProductModal('Công cụ tạo tên doanh nghiệp', 'Công cụ brainstorm tên doanh nghiệp giúp bạn tạo ra tên công ty chuyên nghiệp và dễ nhớ. Nhập lĩnh vực kinh doanh, đối tượng khách hàng, và nhận đề xuất tên với phân tích ý nghĩa. Tính năng: Tạo tên dựa trên từ khóa, kiểm tra trùng lặp, và gợi ý domain khả dụng. Lý tưởng cho việc thành lập công ty mới hoặc rebranding.')">Truy Cập</button>
+            </div>
+            <div class="product-card">
+                <h3>Tạo nội dung quảng cáo Google</h3>
+                <p>Tạo nội dung quảng cáo hiệu quả cho Google Ads, tối ưu hóa để tăng tỷ lệ chuyển đổi.</p>
+                <button onclick="openProductModal('Tạo nội dung quảng cáo Google', 'Công cụ tạo nội dung quảng cáo cho Google Ads giúp bạn viết headline và description hấp dẫn, tối ưu SEO. Nhập sản phẩm, lợi ích, và từ khóa để nhận quảng cáo sẵn sàng chạy. Tính năng: Tối ưu hóa cho CTR, A/B testing gợi ý, và phân tích hiệu suất. Giúp tăng tỷ lệ chuyển đổi và tiết kiệm chi phí quảng cáo.')">Truy Cập</button>
+            </div>
+            <div class="product-card">
+                <h3>Tạo nội dung quảng cáo Facebook</h3>
+                <p>Thiết kế nội dung quảng cáo hấp dẫn cho Facebook, thu hút tương tác và bán hàng.</p>
+                <button onclick="openProductModal('Tạo nội dung quảng cáo Facebook', 'Công cụ thiết kế nội dung quảng cáo Facebook tạo ra bài viết, caption, và hashtag thu hút. Nhập thông tin sản phẩm để nhận nội dung sẵn sàng đăng. Tính năng: Tối ưu cho engagement, gợi ý hình ảnh, và phân tích cảm xúc. Phù hợp cho marketing trên mạng xã hội, tăng tương tác và doanh số bán hàng.')">Truy Cập</button>
+            </div>
+            <div class="product-card">
+                <h3>Công cụ tạo nội dung trang web</h3>
+                <p>Tạo nội dung chất lượng cho website, bao gồm bài viết, mô tả và SEO tối ưu.</p>
+                <button onclick="openProductModal('Công cụ tạo nội dung trang web', 'Công cụ tạo nội dung cho website giúp viết bài blog, mô tả sản phẩm, và meta description tối ưu SEO. Nhập chủ đề và từ khóa để nhận nội dung chất lượng cao. Tính năng: Tối ưu hóa cho công cụ tìm kiếm, kiểm tra plagiarism, và gợi ý liên kết nội bộ. Giúp cải thiện thứ hạng website và thu hút traffic tự nhiên.')">Truy Cập</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+            <button onclick="closeModal()">Đóng</button>
+        </div>
+    </div>
+
+    <div id="faqBlock">
+        <h3>Câu hỏi thường gặp</h3>
+        <ul class="faq-list">
+            <li>
+                <a href="#" class="faq-link" onclick="toggleFaqAnswer(this); return false;">1. Trình tạo mô tả sản phẩm AI hoạt động như thế nào?</a>
+                <div class="faq-answer" style="display: none; padding-top: 10px; color: #555;">Hệ thống sử dụng trí tuệ nhân tạo để phân tích các từ khóa, tính năng và lợi ích bạn nhập vào, từ đó tự động viết ra các đoạn mô tả hấp dẫn và chuẩn SEO.</div>
+            </li>
+            <li>
+                <a href="#" class="faq-link" onclick="toggleFaqAnswer(this); return false;">2. Trình tạo mô tả sản phẩm được sử dụng miễn phí không?</a>
+                <div class="faq-answer" style="display: none; padding-top: 10px; color: #555;">Có, chúng tôi cung cấp chế độ tạo tự động (offline) hoàn toàn miễn phí. Để dùng mô hình cao cấp hơn, bạn có thể nhập API Key của riêng mình.</div>
+            </li>
+            <li>
+                <a href="#" class="faq-link" onclick="toggleFaqAnswer(this); return false;">3. Tôi có thể tùy chỉnh các mô tả được tạo không?</a>
+                <div class="faq-answer" style="display: none; padding-top: 10px; color: #555;">Hoàn toàn có thể. Kết quả được trả về dưới dạng văn bản, bạn có thể dễ dàng sao chép và chỉnh sửa theo phong cách riêng trước khi sử dụng.</div>
+            </li>
+            <li>
+                <a href="#" class="faq-link" onclick="toggleFaqAnswer(this); return false;">4. Làm thế nào để tạo mô tả sản phẩm?</a>
+                <div class="faq-answer" style="display: none; padding-top: 10px; color: #555;">Rất đơn giản! Điền tên sản phẩm, các tính năng nổi bật, lợi ích chính, và nhấn nút "Tạo Mô Tả". Công cụ sẽ lo phần còn lại.</div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="tips">
+        <h2>Nhận những lời khuyên hữu ích từ các tác giả của V-ecommerce</h2>
+        <ul class="tips-list">
+            <li>
+                <a href="#" class="tip-link" onclick="toggleFaqAnswer(this); return false;">6 mẹo quan trọng để viết mô tả sản phẩm tuyệt vời</a>
+                <div class="tip-answer" style="display: none; padding-top: 10px; color: #555;">1. Sử dụng ngôn ngữ hấp dẫn và cảm xúc để thu hút khách hàng.<br>2. Nhấn mạnh lợi ích chính thay vì chỉ liệt kê tính năng.<br>3. Chèn từ khóa SEO một cách tự nhiên.<br>4. Sử dụng bullet points để dễ đọc.<br>5. Thêm lời kêu gọi hành động (CTA).<br>6. Kiểm tra và chỉnh sửa để đảm bảo chính xác.</div>
+            </li>
+            <li>
+                <a href="#" class="tip-link" onclick="toggleFaqAnswer(this); return false;">SEO trang sản phẩm: cấu trúc của một trang được tối ưu hóa tốt</a>
+                <div class="tip-answer" style="display: none; padding-top: 10px; color: #555;">Một trang sản phẩm tối ưu SEO cần có: Tiêu đề hấp dẫn với từ khóa, mô tả chi tiết, hình ảnh chất lượng, đánh giá khách hàng, và liên kết nội bộ. Đảm bảo tốc độ tải trang nhanh và thân thiện với mobile.</div>
+            </li>
+            <li>
+                <a href="#" class="tip-link" onclick="toggleFaqAnswer(this); return false;">13 cách hiệu quả, tiết kiệm chi phí để quảng bá sản phẩm</a>
+                <div class="tip-answer" style="display: none; padding-top: 10px; color: #555;">1. Sử dụng mạng xã hội miễn phí như Facebook, Instagram.<br>2. Tạo nội dung blog hoặc video.<br>3. Hợp tác với influencer.<br>4. Email marketing.<br>5. Quảng cáo Google Ads với ngân sách nhỏ.<br>6. Tham gia diễn đàn và cộng đồng.<br>7. Tối ưu hóa SEO.<br>8. Sử dụng Pinterest.<br>9. Tạo giveaway.<br>10. Liên kết với blog khác.<br>11. Sử dụng TikTok.<br>12. Quảng cáo trên Reddit.<br>13. Phân tích và điều chỉnh chiến lược.</div>
+            </li>
+        </ul>
+    </div>
+
+    
+
+    <div id="evaluation" style="display: none;">
+        <h2>Kết Quả Đánh Giá</h2>
+        <p id="evaluationResult"></p>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize counters on page load
+        window.addEventListener('load', function() {
+            animateCounters();
+            checkFormCompletion();
+            // Add event listener to button
+            document.getElementById('generateBtn').addEventListener('click', generateDescription);
+        });
+    </script>
+
+    <footer id="contact">
+        <h3>Liên Hệ Với Chúng Tôi</h3>
+        <p>Email: contact@example.com</p>
+        <p>Điện thoại: 0123-456-789</p>
+        <p>Địa chỉ: 175 Tây Sơn, phường Kim Liên, thành phố Hà Nội</p>
+    </footer>
+    
+</body>
+</html>
